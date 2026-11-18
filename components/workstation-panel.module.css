@@ -1,0 +1,109 @@
+.dialog {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top));
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: min(550px, calc(100% - 28px));
+  max-width: 100%;
+  max-height: calc(100dvh - max(28px, env(safe-area-inset-top)) - env(safe-area-inset-bottom));
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid #627589;
+  border-radius: 15px;
+  overflow: hidden;
+  color: #ecf2f8;
+  background: #19283b;
+  box-shadow: 0 18px 75px rgb(0 0 0 / .5);
+}
+
+.dialog::backdrop {
+  background: rgb(7 17 26 / .59);
+}
+
+.panel {
+  display: flex;
+  max-height: min(660px, calc(100dvh - max(28px, env(safe-area-inset-top)) - env(safe-area-inset-bottom)));
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  min-height: 55px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 7px 5px 15px;
+}
+
+.header > svg { color: #a9d3d6; }
+.header h2 { min-width: 0; margin: 0; font-size: 16px; font-weight: 660; }
+.header button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  place-items: center;
+  margin-left: auto;
+  border-radius: 8px;
+  color: #d3e1ef;
+}
+
+.search {
+  padding: 1px 13px 10px;
+}
+
+.search input {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 12px;
+  border: 1px solid #658095;
+  border-radius: 8px;
+  color: #f2f6fa;
+  background: #101d2f;
+  font-size: 16px;
+}
+.search input::placeholder { color: #b2c1d1; opacity: 1; }
+
+.panelBody {
+  min-height: 0;
+  padding: 0 10px 10px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.panelBody h3 {
+  margin: 9px 3px 8px;
+  color: #becddb;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.list { padding: 0; list-style: none; }
+
+.list button {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  width: 100%;
+  min-height: 54px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 6px;
+  border-top: 1px solid #99b5cd27;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.list strong, .list small { display: block; overflow-wrap: anywhere; }
+.list strong { color: #edf3f8; font-size: 14px; font-weight: 650; }
+.list small { margin-top: 1px; color: #c0cfdb; font-size: 12px; }
+.list button > svg { color: #b2c9d9; }
+
+@media (min-width: 1024px) {
+  .dialog { top: 71px; }
+  .panel { max-height: min(660px, calc(100dvh - 88px)); }
+}
+
+@media (hover: hover) {
+  .header button:hover, .list button:hover { background: #b3d2ec1c; }
+}

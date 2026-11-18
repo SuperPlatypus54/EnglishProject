@@ -1,0 +1,638 @@
+.files,
+.notes {
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  container-type: inline-size;
+  color: #222f40;
+  background: #f2f6fa;
+  font-size: 0.9375rem;
+  --productivity-border: #dbe3ee;
+  --productivity-muted: #52647a;
+  --productivity-link: #1a5086;
+}
+
+.files button,
+.notes button {
+  cursor: pointer;
+  text-align: left;
+}
+
+.files button:focus-visible,
+.notes button:focus-visible {
+  outline: 2px solid #2164a8;
+  outline-offset: -2px;
+}
+
+.fileSidebar {
+  display: none;
+  flex: 0 0 174px;
+  padding: 18px 10px;
+  border-right: 1px solid var(--productivity-border);
+  background: #e9eff6;
+  overflow-y: auto;
+}
+
+.locationLabel {
+  margin: 2px 11px 8px;
+  color: var(--productivity-muted);
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.fileSidebar button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #3d4d64;
+  font-size: 0.875rem;
+  font-weight: 550;
+}
+
+.fileSidebar button:nth-last-child(2) {
+  margin-top: 12px;
+}
+
+.fileSidebar button.activeLocation,
+.fileSidebar button:hover {
+  color: #184c82;
+  background: #d8e7f8;
+}
+
+.fileSidebar svg,
+.fileToolbar svg {
+  flex: 0 0 auto;
+}
+
+.filePane,
+.notePane {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.fileToolbar {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 3px;
+  min-height: 51px;
+  padding: 3px 8px;
+  border-bottom: 1px solid var(--productivity-border);
+  color: var(--productivity-muted);
+  background: #f8fafd;
+  font-size: 0.8125rem;
+}
+
+.fileToolbar button,
+.fileToolbar > span {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.fileToolbar button {
+  gap: 5px;
+  color: var(--productivity-link);
+}
+
+.fileToolbar button:hover {
+  background: #eaf0f7;
+}
+
+.fileToolbar .backButton {
+  justify-content: center;
+  flex: 0 0 44px;
+  padding: 0;
+}
+
+.fileToolbar button[aria-current] {
+  color: var(--productivity-muted);
+}
+
+.fileScroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 22px 15px 30px;
+}
+
+.fileScroll h1,
+.noteListTitle h2,
+.noteSheet h1 {
+  margin: 0;
+  color: #18283b;
+  font-size: clamp(1.45rem, 4.8vw, 1.875rem);
+  font-weight: 680;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+.fileScroll > h1 {
+  margin: 0 0 16px;
+}
+
+.folderGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 9px;
+  margin-bottom: 16px;
+}
+
+.folderCard {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 69px;
+  padding: 10px;
+  border: 1px solid var(--productivity-border);
+  border-radius: 11px;
+  background: #fff;
+}
+
+.folderCard:hover,
+.fileRow:hover {
+  background: #f5faff;
+}
+
+.folderIcon,
+.fileIcon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 9px;
+  background: #e5effe;
+  color: #2b61a0;
+}
+
+.fileIcon {
+  width: 33px;
+  height: 33px;
+  border-radius: 7px;
+  background: #e8eef6;
+  color: #3b5b80;
+}
+
+.pdfIcon {
+  background: #f5e9e8;
+  color: #9c4b48;
+}
+
+.folderLabel,
+.fileIdentity {
+  display: grid;
+  flex: 1;
+  gap: 3px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.folderLabel strong,
+.fileIdentity strong {
+  font-size: 0.9rem;
+  font-weight: 670;
+  line-height: 1.25;
+}
+
+.folderLabel small,
+.fileIdentity small,
+.fileRow time {
+  color: var(--productivity-muted);
+  font-size: 0.8125rem;
+  line-height: 1.3;
+}
+
+.quietIcon {
+  flex: 0 0 auto;
+  color: #617589;
+}
+
+.fileList {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--productivity-border);
+  border-radius: 10px;
+  background: #fff;
+  list-style: none;
+}
+
+.fileList li + li {
+  border-top: 1px solid var(--productivity-border);
+}
+
+.fileRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 60px;
+  padding: 9px 10px;
+}
+
+.fileRow time {
+  flex: 0 0 auto;
+  margin-left: auto;
+  text-align: right;
+}
+
+.recentSection {
+  margin-top: 16px;
+}
+
+.sectionLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-bottom: 5px;
+  padding: 0 8px;
+  border-radius: 6px;
+  color: var(--productivity-link);
+  font-weight: 650;
+}
+
+.sectionLink:hover {
+  background: #e7eff9;
+}
+
+.emptyFiles {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px;
+  border: 1px solid var(--productivity-border);
+  border-radius: 10px;
+  color: var(--productivity-muted);
+  background: #fff;
+}
+
+.documentPaper {
+  width: min(100%, 650px);
+  margin: 0 auto;
+  padding: clamp(18px, 4.85vw, 38px);
+  border: 1px solid var(--productivity-border);
+  border-radius: 10px;
+  color: #303d4c;
+  background: #fff;
+  box-shadow: 0 5px 17px #27384a0b;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.documentPaper h1,
+.noteSheet h1 {
+  margin: 0 0 17px;
+}
+
+.documentPaper h1:focus,
+.noteSheet h1:focus {
+  outline: none;
+}
+
+.documentPaper .issuer {
+  margin: 0 0 4px;
+  color: var(--productivity-muted);
+  font-size: 0.8125rem;
+  font-weight: 650;
+}
+
+.artifactSection + .artifactSection {
+  margin-top: 17px;
+}
+
+.artifactSection h2 {
+  margin: 0 0 6px;
+  color: #202e41;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.artifactSection p {
+  margin: 0;
+}
+
+.artifactSection p + p {
+  margin-top: 10px;
+}
+
+.fieldList,
+.checklist {
+  margin: 0;
+  padding: 0;
+}
+
+.fieldList div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr);
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #e7edf4;
+}
+
+.fieldList dt {
+  color: var(--productivity-muted);
+  font-size: 0.875rem;
+}
+
+.fieldList dd {
+  margin: 0;
+  color: #233349;
+  font-weight: 560;
+}
+
+.checklist {
+  list-style: none;
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 5px 0;
+}
+
+.checklist svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.checked {
+  color: #28714b;
+}
+
+.unchecked {
+  color: #667581;
+}
+
+.photoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.photoGrid button {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--productivity-border);
+  border-radius: 9px;
+  background: #fff;
+}
+
+.photoGrid button span {
+  display: block;
+  padding: 10px;
+  color: #253952;
+  font-size: 0.875rem;
+  font-weight: 630;
+}
+
+.photoFigure {
+  margin: 0;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: #ae8c66;
+  background-image: var(--family-contact-sheet);
+  background-repeat: no-repeat;
+  background-size: 300% 100%;
+}
+
+.photoLeft {
+  background-position: left center;
+}
+
+.photoCenter {
+  background-position: center;
+}
+
+.photoRight {
+  background-position: right center;
+}
+
+.photoFigure .photo {
+  max-width: 480px;
+  border-radius: 5px;
+}
+
+.photoFigure figcaption {
+  margin: 12px 0 0;
+  color: #536176;
+}
+
+.notes {
+  color: #332b20;
+  background: #fcf8ef;
+  --productivity-muted: #655c4f;
+  --productivity-border: #e6dcc9;
+}
+
+.noteSidebar {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #f7f0e1;
+}
+
+.noteListTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 21px 16px 12px;
+}
+
+.noteListTitle h2,
+.noteSheet h1 {
+  color: #352b1f;
+}
+
+.noteListTitle span,
+.noteSheet time {
+  color: var(--productivity-muted);
+  font-size: 0.8125rem;
+}
+
+.noteList {
+  margin: 0;
+  padding: 0 10px 12px;
+  list-style: none;
+}
+
+.noteList li + li {
+  border-top: 1px solid var(--productivity-border);
+}
+
+.noteList button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 4px 8px;
+  width: 100%;
+  min-height: 69px;
+  padding: 12px 8px;
+  border-radius: 7px;
+}
+
+.noteList button:hover,
+.noteList button.activeNote {
+  background: #efe1c2;
+}
+
+.noteList strong {
+  font-size: 0.9375rem;
+  font-weight: 670;
+}
+
+.noteList time,
+.noteList span {
+  color: var(--productivity-muted);
+  font-size: 0.8125rem;
+}
+
+.noteList span {
+  grid-column: 1 / 3;
+  grid-row: 2;
+  overflow-wrap: anywhere;
+}
+
+.noteList svg {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  color: var(--productivity-muted);
+}
+
+.notePane {
+  display: none;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 9px 18px 30px;
+}
+
+.withNote .noteSidebar {
+  display: none;
+}
+
+.withNote .notePane {
+  display: flex;
+}
+
+.noteBack {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 7px;
+  margin: 0 0 8px -7px;
+  border-radius: 6px;
+  color: #735111;
+  font-weight: 650;
+}
+
+.noteBack:hover {
+  background: #f4ead4;
+}
+
+.noteSheet {
+  width: min(100%, 570px);
+  margin: 0 auto;
+  color: #3f3528;
+  font-size: 1rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.noteSheet time {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.notePlaceholder {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  flex: 1;
+  gap: 9px;
+  color: var(--productivity-muted);
+}
+
+.notePlaceholder p {
+  margin: 0;
+}
+
+@container (min-width: 485px) {
+  .folderGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@container (min-width: 680px) {
+  .fileSidebar {
+    display: block;
+  }
+
+  .fileScroll {
+    padding: 25px 25px 35px;
+  }
+
+  .fileToolbar {
+    padding-inline: 12px;
+  }
+
+  .noteSidebar,
+  .withNote .noteSidebar {
+    display: flex;
+    flex: 0 0 235px;
+    border-right: 1px solid var(--productivity-border);
+  }
+
+  .noteList button {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .noteList svg {
+    display: none;
+  }
+
+  .notePane {
+    display: flex;
+    padding: 29px clamp(24px, 4.4vw, 50px);
+  }
+
+  .noteBack {
+    display: none;
+  }
+}
