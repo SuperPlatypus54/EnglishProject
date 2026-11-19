@@ -78,7 +78,7 @@ export function HeartlineApp({ view, go, back, readIds, markRead }: AppProps) {
         <section className={styles.matchList} aria-label="Match conversations" data-workstation-scroll>
           <div className={styles.matchHeading}>
             <h2>Matches</h2>
-            <p>{heartlineThreads.length} conversations</p>
+            <p>{heartlineThreads.length} {heartlineThreads.length === 1 ? "conversation" : "conversations"}</p>
           </div>
           {heartlineThreads.map((item) => {
             const person = profilesById.get(item.personId);

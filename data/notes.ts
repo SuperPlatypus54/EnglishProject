@@ -33,7 +33,7 @@ export const notes: readonly WorkstationNote[] = [
       {
         kind: "checklist",
         items: [
-          { label: "Call Greystone back. Marcus covered the first call.", checked: false },
+          { label: "Return the call on the Greystone account. Marcus covered the first call.", checked: false },
           { label: "Send revised quote. It was due Tuesday.", checked: false },
           { label: "Pull the November numbers for Andrew.", checked: true },
           { label: "Update accounts with no follow-up date.", checked: false },
@@ -73,7 +73,7 @@ export const notes: readonly WorkstationNote[] = [
         kind: "checklist",
         items: [
           { label: "Check Daniel's invite", checked: true },
-          { label: "Ask what time everybody will be there", checked: false },
+          { label: "Ask Daniel what time to come over", checked: false },
           { label: "See if Mom and Dad are around Sunday", checked: false },
         ],
       },

@@ -202,7 +202,7 @@ export const documents: readonly WorkstationDocument[] = [
       {
         kind: "paragraphs",
         paragraphs: [
-          "Maybe just do dinner at Mom and Dad's. Invite Daniel and tell him he can bring whoever. Don't book a whole thing again.",
+          "Maybe just do dinner at Mom and Dad's. See if Daniel can make it. Don't book a whole thing again.",
           "Mom asked if I still had the old prints. Navy shoebox, B-12 downstairs. Should take it next time. Maybe put a few in frames.",
           "Pick a Saturday when Dad's off. Ask Daniel about",
         ],
@@ -302,7 +302,7 @@ export const documents: readonly WorkstationDocument[] = [
       {
         kind: "paragraphs",
         paragraphs: [
-          "Jamie,",
+          "James,",
           "I put the extra prints in with the envelopes. You always said you didn't remember that lake trip, but Dad says you wouldn't leave the dock. Bring the pictures back next time you come by and we'll sort them.",
           "Love, Mom",
         ],

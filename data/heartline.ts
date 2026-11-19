@@ -6,7 +6,7 @@ export interface HeartlineProfile {
   height?: string;
   bio: string;
   interests: readonly string[];
-  avatarColor: "rose" | "ink" | "plum" | "blue";
+  avatarColor: "rose" | "ink";
 }
 
 export interface HeartlineMessage {
@@ -42,24 +42,6 @@ export const heartlineProfiles: readonly HeartlineProfile[] = [
     bio: "Looking for someone who can match my energy. When I find someone I like, I go all in.",
     interests: ["Weightlifting", "Fitness", "Fine dining", "Quality time"],
     avatarColor: "rose",
-  },
-  {
-    id: "maya",
-    name: "Maya",
-    age: 29,
-    occupation: "Bookshop Manager",
-    bio: "Usually halfway through two books. Always in search of a decent window seat.",
-    interests: ["Bookshops", "Baking", "City walks"],
-    avatarColor: "plum",
-  },
-  {
-    id: "elena",
-    name: "Elena",
-    age: 27,
-    occupation: "Graphic Designer",
-    bio: "On weekends I make pottery, badly enough that nobody asks me to make them anything.",
-    interests: ["Pottery", "Museums", "Live music"],
-    avatarColor: "blue",
   },
 ];
 
@@ -106,28 +88,6 @@ export const heartlineThreads: readonly HeartlineThread[] = [
       { sender: "match", time: "3:23 PM", text: "I'll be there a few minutes early. Brass doors by the lobby, right?" },
       { sender: "james", time: "3:24 PM", text: "Yep. Looking forward to it." },
       { sender: "match", time: "3:24 PM", text: "Me too. Seriously :)" },
-    ],
-  },
-  {
-    id: "maya",
-    personId: "maya",
-    date: "2026-10-22",
-    preview: "No worries. Maybe another time.",
-    messages: [
-      { sender: "james", time: "5:06 PM", text: "Still up for coffee on Saturday?" },
-      { sender: "match", time: "5:38 PM", text: "They put me on the rota this weekend. I'm sorry, I know we already moved it once." },
-      { sender: "james", time: "6:42 PM", text: "No worries. Maybe another time." },
-    ],
-  },
-  {
-    id: "elena",
-    personId: "elena",
-    date: "2026-09-28",
-    preview: "Hey, hope your week is off to a good start.",
-    messages: [
-      { sender: "match", time: "11:28 AM", text: "Did you ever see the print exhibit?" },
-      { sender: "james", time: "12:53 PM", text: "I missed the last day. My manager asked me to stay late." },
-      { sender: "james", time: "6:09 PM", text: "Hey, hope your week is off to a good start." },
     ],
   },
 ];

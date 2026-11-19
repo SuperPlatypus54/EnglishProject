@@ -19,6 +19,7 @@ export interface MailMessage {
 const jamesPersonal = { to: "James Bond", toAddress: "james.bond@meridianmail.example" };
 const jamesWork = { to: "James Bond", toAddress: "james.bond@apexsales.example" };
 const andrew = { from: "Andrew Tate", fromAddress: "andrew.tate@apexsales.example" };
+const danielAddress = "daniel@mailpost.example";
 const restaurant = {
   from: "The Grand Meridian Restaurant",
   fromAddress: "reservations@grandmeridian.example",
@@ -140,7 +141,7 @@ export const mailMessages: readonly MailMessage[] = [
     id: "daniel-invitation",
     folder: "inbox",
     from: "Daniel",
-    fromAddress: "daniel.ellis@mailpost.example",
+    fromAddress: danielAddress,
     ...jamesPersonal,
     subject: "You Coming Friday?",
     date: "2026-11-16",
@@ -228,7 +229,7 @@ export const mailMessages: readonly MailMessage[] = [
     from: "James Bond",
     fromAddress: jamesPersonal.toAddress,
     to: "Daniel",
-    toAddress: "daniel.ellis@mailpost.example",
+    toAddress: danielAddress,
     subject: "Re: The old crew",
     date: "2026-09-27",
     time: "4:52 PM",

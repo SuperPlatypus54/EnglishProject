@@ -20,8 +20,7 @@ const sections = [
   { id: "branch", title: "Branch", icon: Building2 },
 ];
 
-const rankings = [...branchTeam].sort((first, second) => second.sales - first.sales);
-const employeeRank = rankings.findIndex((record) => record.name === employeeSales.name) + 1;
+const rankings = [...branchTeam].sort((first, second) => first.rank - second.rank);
 
 function percentage(actual: number, target: number) {
   return `${((actual / target) * 100).toFixed(1)}%`;
@@ -122,7 +121,7 @@ function EmployeeOverview() {
         { label: "Monthly sales", value: dollars.format(employeeSales.actual), caption: "November month to date" },
         { label: "Quota attainment", value: attainment, caption: `Target ${dollars.format(employeeSales.target)}` },
         { label: "Deals closed", value: String(employeeSales.closed), caption: `of ${employeeSales.assigned} assigned` },
-        { label: "Branch ranking", value: `${employeeRank} of ${rankings.length}`, caption: "By November sales" },
+        { label: "Branch ranking", value: `${employeeSales.rank} of ${branchReport.headcount}`, caption: "By November sales" },
       ]} />
       <div className={styles.overviewGrid}>
         <SalesTrend />
@@ -149,8 +148,7 @@ function EmployeeOverview() {
 
 function Leaderboard() {
   const [query, setQuery] = useState("");
-  const team = rankings.map((record, index) => ({ ...record, rank: index + 1 }));
-  const visible = team.filter((record) => record.name.toLowerCase().includes(query.trim().toLowerCase()));
+  const visible = rankings.filter((record) => record.name.toLowerCase().includes(query.trim().toLowerCase()));
 
   return (
     <div className={styles.page}>
@@ -163,7 +161,7 @@ function Leaderboard() {
       </div>
       <section className={styles.teamCard} aria-label="November sales leaderboard">
         <div className={styles.tableToolbar}>
-          <p>{visible.length} of {team.length} employees</p>
+          <p>{visible.length} of {branchReport.headcount} employees</p>
           <label className={styles.search}>
             <Search aria-hidden="true" size={17} />
             <input type="search" aria-label="Find an employee" placeholder="Find an employee" value={query} onChange={(event) => setQuery(event.target.value)} />
@@ -201,7 +199,7 @@ function BranchOverview() {
       </div>
       <Metrics metrics={[
         { label: "November sales", value: dollars.format(branchReport.actual), caption: `As of ${branchReport.date}` },
-        { label: "Monthly branch quota", value: dollars.format(branchReport.target), caption: `${branchTeam.length} sales associates` },
+        { label: "Monthly branch quota", value: dollars.format(branchReport.target), caption: `${branchReport.headcount} sales associates` },
         { label: "Quota attainment", value: percentage(branchReport.actual, branchReport.target), caption: "November month to date" },
         { label: "Behind target pace", value: dollars.format(novemberPace - branchReport.actual), caption: "Based on elapsed calendar days" },
       ]} />
