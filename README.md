@@ -28,7 +28,7 @@ The production build exports static files to `out/`. Serve that directory with a
 | [data/heartline.ts](data/heartline.ts) | Profiles, matches, and timestamped chat messages |
 | [data/mail.ts](data/mail.ts) | Inbox, Sent, Drafts, Trash, and unread flags |
 | [data/sales.ts](data/sales.ts) | Sales history, quotas, team standings, and the branch memo |
-| [data/files.ts](data/files.ts) | Folders, document sections, photo captions, and shared checklists |
+| [data/files.ts](data/files.ts) | Folders, document sections, keepsake photo captions, and shared checklists |
 | [data/calendar.ts](data/calendar.ts) | Event dates, start times, and priority |
 | [data/notes.ts](data/notes.ts) | Personal notes and checklists |
 

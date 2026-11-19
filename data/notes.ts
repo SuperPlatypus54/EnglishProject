@@ -33,7 +33,7 @@ export const notes: readonly WorkstationNote[] = [
       {
         kind: "checklist",
         items: [
-          { label: "Return the call on the Greystone account. Marcus covered the first call.", checked: false },
+          { label: "Call the client back. The first call is already logged.", checked: false },
           { label: "Send revised quote. It was due Tuesday.", checked: false },
           { label: "Pull the November numbers for Andrew.", checked: true },
           { label: "Update accounts with no follow-up date.", checked: false },
@@ -42,7 +42,7 @@ export const notes: readonly WorkstationNote[] = [
       {
         kind: "paragraphs",
         paragraphs: [
-          "$50k target. $12,450 posted. Check if the Calder renewal was counted yet.",
+          "$50k target. $12,450 posted. Check if the November renewal was counted yet.",
           "Tomorrow, 9:00. Bring a copy of the account list. Print it in the morning.",
         ],
       },
@@ -58,7 +58,7 @@ export const notes: readonly WorkstationNote[] = [
         kind: "paragraphs",
         paragraphs: [
           "Text Otto when I know what I can transfer. Ask if he'll take September's balance first.",
-          "Maintenance wants a picture of the chipped wall in 402. The light by the door is terrible. Try in the morning.",
+          "Get Otto a picture of the chipped wall in 402. The light by the door is terrible. Try in the morning.",
         ],
       },
     ],
@@ -67,20 +67,20 @@ export const notes: readonly WorkstationNote[] = [
     id: "weekend-plans",
     title: "Weekend Plans",
     modified: "2026-11-17",
-    summary: "Daniel asked about Friday. Maybe bring the old photos.",
+    summary: "Maybe drive out to the lake on Sunday.",
     sections: [
       {
         kind: "checklist",
         items: [
-          { label: "Check Daniel's invite", checked: true },
-          { label: "Ask Daniel what time to come over", checked: false },
-          { label: "See if Mom and Dad are around Sunday", checked: false },
+          { label: "Check the weather for Sunday", checked: true },
+          { label: "Find the old envelope from the lake", checked: false },
+          { label: "Fill up the car", checked: false },
         ],
       },
       {
         kind: "paragraphs",
         paragraphs: [
-          "Maybe just go for an hour. If I drive home Sunday, bring the old photos. Figure out where I put the basement key.",
+          "Maybe just go for an hour. Figure out where I put the basement key.",
         ],
       },
     ],
@@ -89,14 +89,14 @@ export const notes: readonly WorkstationNote[] = [
     id: "people-to-call",
     title: "People to Call",
     modified: "2026-08-26",
-    summary: "Mom, Dad, Daniel",
+    summary: "Three calls James meant to make in August.",
     sections: [
       {
         kind: "checklist",
         items: [
-          { label: "Mom", checked: false },
-          { label: "Dad", checked: false },
-          { label: "Daniel", checked: false },
+          { label: "Andrew about next month's target", checked: false },
+          { label: "Otto about the storage key", checked: false },
+          { label: "Gordon about the old dinner receipt", checked: false },
         ],
       },
     ],

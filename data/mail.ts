@@ -19,7 +19,6 @@ export interface MailMessage {
 const jamesPersonal = { to: "James Bond", toAddress: "james.bond@meridianmail.example" };
 const jamesWork = { to: "James Bond", toAddress: "james.bond@apexsales.example" };
 const andrew = { from: "Andrew Tate", fromAddress: "andrew.tate@apexsales.example" };
-const danielAddress = "daniel@mailpost.example";
 const restaurant = {
   from: "The Grand Meridian Restaurant",
   fromAddress: "reservations@grandmeridian.example",
@@ -45,7 +44,7 @@ export const mailMessages: readonly MailMessage[] = [
     subject: "Re: Tonight's check",
     date: "2026-11-18",
     time: "8:32 PM",
-    body: "James,\n\nThe front desk has a copy of the check. I took the steak off the bill again. You can bring a problem to the server next time. Coming to the kitchen door during service held up two tables.\n\nGordon",
+    body: "James,\n\nThe front desk has a copy of the check. I took the steak off the bill again. Please raise any problems at your table next time. Coming to the kitchen door during service held up two tables.\n\nGordon",
   },
   {
     id: "dinner-complaint",
@@ -85,13 +84,12 @@ export const mailMessages: readonly MailMessage[] = [
   {
     id: "client-follow-up",
     folder: "inbox",
-    from: "Marcus Hill",
-    fromAddress: "marcus.hill@apexsales.example",
+    ...andrew,
     ...jamesWork,
     subject: "Client Follow-Up",
     date: "2026-11-18",
     time: "1:06 PM",
-    body: "James,\n\nThe client called again asking why nobody got back to them. This is the third time I've had to cover for you.\n\nPlease handle your accounts.\n\nMarcus",
+    body: "James,\n\nThe Greystone account is still waiting on a response. Please follow up by 4:00 and log it in the account notes.\n\nAndrew",
   },
   {
     id: "lobby-delivery",
@@ -102,7 +100,7 @@ export const mailMessages: readonly MailMessage[] = [
     subject: "Lobby table this afternoon",
     date: "2026-11-18",
     time: "12:10 PM",
-    body: "Residents,\n\nWe moved the flower table beside the elevators to make room for a delivery this afternoon. Please leave the blue vase with the table. The florist is picking it up Thursday.\n\nGrand Meridian Front Desk",
+    body: "Residents,\n\nWe moved the flower table beside the elevators to make room for a delivery this afternoon. Please leave the blue vase with the table. Pickup is scheduled for Thursday.\n\nGrand Meridian Front Desk",
   },
   {
     id: "rent-final-notice",
@@ -136,28 +134,6 @@ export const mailMessages: readonly MailMessage[] = [
     date: "2026-11-17",
     time: "3:22 PM",
     body: "Thank you for booking with The Grand Meridian Restaurant.\n\nDate: November 18, 2026\nTime: 7:00 PM\nGuests: 2\nName: James Bond\n\nPlease check in at the host stand off the main lobby.",
-  },
-  {
-    id: "daniel-invitation",
-    folder: "inbox",
-    from: "Daniel",
-    fromAddress: danielAddress,
-    ...jamesPersonal,
-    subject: "You Coming Friday?",
-    date: "2026-11-16",
-    time: "7:39 PM",
-    body: "Hey man,\n\nA few of us are getting together Friday. Haven't seen you in forever.\n\nWould be great if you came.\n\nDaniel",
-  },
-  {
-    id: "mother-checking-in",
-    folder: "inbox",
-    from: "Mom",
-    fromAddress: "bond.family@mailpost.example",
-    ...jamesPersonal,
-    subject: "Checking In",
-    date: "2026-11-15",
-    time: "10:17 AM",
-    body: "James,\n\nIt's been a while since we've heard from you. Your dad and I hope you're doing okay.\n\nWe would love to see you sometime soon. You know you're always welcome.\n\nLove,\nMom",
   },
   {
     id: "vendor-newsletter",
@@ -222,17 +198,5 @@ export const mailMessages: readonly MailMessage[] = [
     date: "2026-10-29",
     time: "9:42 PM",
     body: "The Grand Meridian Restaurant\nOctober 29, 2026\nOrder placed: 9:24 PM\nKitchen last orders: 9:30 PM\nOrder #1048\n\nSirloin with fries: $32.00\nIced tea: $4.00\nSteak adjustment: −$32.00\nTax: $0.40\nTotal paid: $4.40\n\nThank you for dining with us.",
-  },
-  {
-    id: "daniel-old",
-    folder: "sent",
-    from: "James Bond",
-    fromAddress: jamesPersonal.toAddress,
-    to: "Daniel",
-    toAddress: danielAddress,
-    subject: "Re: The old crew",
-    date: "2026-09-27",
-    time: "4:52 PM",
-    body: "I forgot how long we'd been playing at your place till I saw those photos. Send me the one where we all have the paper crowns? I think Mom still has the prints somewhere.\n\nJames",
   },
 ];

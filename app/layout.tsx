@@ -6,7 +6,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const assetStyles = {
   "--workstation-wallpaper": `url("${basePath}/workstation.webp")`,
   "--workstation-wallpaper-mobile": `url("${basePath}/workstation-mobile.webp")`,
-  "--family-contact-sheet": `url("${basePath}/photos/family-contact-sheet.webp")`,
+  "--keepsake-contact-sheet": `url("${basePath}/photos/keepsake-contact-sheet.webp")`,
 } as CSSProperties;
 
 export const metadata: Metadata = {

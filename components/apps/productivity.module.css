@@ -417,7 +417,7 @@
   width: 100%;
   aspect-ratio: 1;
   background-color: #ae8c66;
-  background-image: var(--family-contact-sheet);
+  background-image: var(--keepsake-contact-sheet);
   background-repeat: no-repeat;
   background-size: 300% 100%;
 }

@@ -248,7 +248,7 @@ export function FilesApp({ view, go, back, recentIds, recordRecent }: AppProps) 
                   {nestedFolders.map((item) => <FolderCard key={item.id} folder={item} open={() => openFolder(item)} />)}
                 </div>
               )}
-              {folder?.id === "family-photos" ? (
+              {folder?.id === "keepsakes" ? (
                 <ul className={styles.photoGrid}>
                   {folderDocuments.map((item) => (
                     <li key={item.id}>

@@ -12,7 +12,7 @@ export type ArtifactSection =
     }
   | { kind: "checklist"; title?: string; items: readonly ChecklistItem[] };
 
-export type FileFolderId = "documents" | "personal" | "downloads" | "family-photos" | "old-letters" | "trash";
+export type FileFolderId = "documents" | "personal" | "downloads" | "keepsakes" | "old-letters" | "trash";
 
 export interface FileFolder {
   id: FileFolderId;
@@ -21,7 +21,7 @@ export interface FileFolder {
   summary: string;
 }
 
-interface FamilyPhoto {
+interface KeepsakePhoto {
   position: "left" | "center" | "right";
   alt: string;
   caption: string;
@@ -37,15 +37,15 @@ export interface WorkstationDocument {
   heading?: string;
   issuer?: string;
   sections: readonly ArtifactSection[];
-  photo?: FamilyPhoto;
+  photo?: KeepsakePhoto;
 }
 
 export const fileFolders: readonly FileFolder[] = [
   { id: "documents", name: "Documents", summary: "Employment and tenancy records" },
-  { id: "personal", name: "Personal", summary: "Photos, letters, and plans" },
+  { id: "personal", name: "Personal", summary: "Keepsakes, unsent letters, and plans" },
   { id: "downloads", name: "Downloads", summary: "Saved attachments and confirmations" },
-  { id: "family-photos", name: "Family Photos", parent: "personal", summary: "Scans of family prints" },
-  { id: "old-letters", name: "Old Letters", parent: "personal", summary: "Letters James saved" },
+  { id: "keepsakes", name: "Keepsakes", parent: "personal", summary: "Scans of James's old prints" },
+  { id: "old-letters", name: "Draft Letters", parent: "personal", summary: "Unsent letters James saved" },
   { id: "trash", name: "Trash", summary: "Discarded files" },
 ];
 
@@ -132,7 +132,7 @@ export const documents: readonly WorkstationDocument[] = [
         kind: "paragraphs",
         title: "Manager notes",
         paragraphs: [
-          "Bring a current list of accounts without a next follow-up date. Review the service handoffs noted by Marcus and agree on which accounts need a call before Friday.",
+          "Bring a current list of accounts without a next follow-up date. Review the recent service handoffs and agree on which accounts need a call before Friday.",
           "Performance improvement review pending.",
         ],
       },
@@ -197,14 +197,14 @@ export const documents: readonly WorkstationDocument[] = [
     format: "text",
     modified: "2026-09-02",
     heading: "Birthday Plans",
-    summary: "An old, unfinished plan to get friends and family together.",
+    summary: "An old plan for a birthday dinner that never got booked.",
     sections: [
       {
         kind: "paragraphs",
         paragraphs: [
-          "Maybe just do dinner at Mom and Dad's. See if Daniel can make it. Don't book a whole thing again.",
-          "Mom asked if I still had the old prints. Navy shoebox, B-12 downstairs. Should take it next time. Maybe put a few in frames.",
-          "Pick a Saturday when Dad's off. Ask Daniel about",
+          "See if the restaurant still has that little table by the window. I blocked out the whole evening last year and ended up getting takeout.",
+          "The old birthday menu is in the navy shoebox, B-12 downstairs, with the prints. It might be nice to look through that stuff again.",
+          "Pick a Saturday. Don't just leave it until",
         ],
       },
     ],
@@ -248,63 +248,63 @@ export const documents: readonly WorkstationDocument[] = [
   {
     id: "park-picnic",
     name: "Park Picnic.jpg",
-    folder: "family-photos",
+    folder: "keepsakes",
     format: "photo",
     modified: "2026-07-12",
     heading: "Park picnic",
-    summary: "James and his parents at a picnic in the fall.",
+    summary: "An empty picnic table on an autumn afternoon.",
     photo: {
       position: "left",
-      alt: "James and his parents sitting at a picnic table under gold trees.",
-      caption: "Mom, Dad, me. Dad forgot forks again. Original print in the navy shoebox, basement B-12.",
+      alt: "A folded park map on an empty picnic table under gold trees.",
+      caption: "The park in October. The map still has a coffee stain on the corner. Original print in the navy shoebox, basement B-12.",
     },
     sections: [],
   },
   {
     id: "kitchen-birthday",
     name: "Kitchen Birthday.jpg",
-    folder: "family-photos",
+    folder: "keepsakes",
     format: "photo",
     modified: "2026-07-12",
     heading: "Kitchen birthday",
-    summary: "An old birthday in the family kitchen.",
+    summary: "A recipe card beside a birthday cake in James's kitchen.",
     photo: {
       position: "center",
-      alt: "James and his mother lighting candles on a cake in the family kitchen.",
-      caption: "Mom insisted on every single candle. She found the print in the back of the album.",
+      alt: "A lemon cake and an old handwritten recipe card on a kitchen counter.",
+      caption: "Lemon cake. Recipe says to zest the lemons before juicing them. I always forget. The card's under the birthday menu in the shoebox.",
     },
     sections: [],
   },
   {
     id: "lake-weekend",
     name: "Lake Weekend.jpg",
-    folder: "family-photos",
+    folder: "keepsakes",
     format: "photo",
     modified: "2026-07-12",
     heading: "Lake weekend",
-    summary: "James and his father sitting on the dock at dusk.",
+    summary: "An empty dock at dusk.",
     photo: {
       position: "right",
-      alt: "James and his father looking out from a wooden dock at sunset.",
-      caption: "Dad and me on the dock. The envelope marked LAKE WEEKEND has the other three from this roll.",
+      alt: "An empty wooden dock stretching into a lake at sunset.",
+      caption: "The dock at dusk. In the LAKE WEEKEND envelope with a parking stub and a blank postcard. I meant to go back in August. Maybe next summer.",
     },
     sections: [],
   },
   {
     id: "letter-from-home",
-    name: "Letter from Home.txt",
+    name: "Letter to Myself.txt",
     folder: "old-letters",
     format: "text",
     modified: "2026-04-06",
-    heading: "Letter from Home",
-    summary: "A short letter tucked into a box of photographs.",
+    heading: "Letter to Myself",
+    summary: "A short draft about an old weekend at the lake.",
     sections: [
       {
         kind: "paragraphs",
         paragraphs: [
-          "James,",
-          "I put the extra prints in with the envelopes. You always said you didn't remember that lake trip, but Dad says you wouldn't leave the dock. Bring the pictures back next time you come by and we'll sort them.",
-          "Love, Mom",
+          "If I read this again later, remember how easy it was to spend the whole evening on the dock without checking the time.",
+          "Put the postcard back in the envelope with the ticket stub.",
+          "James",
         ],
       },
     ],
@@ -322,7 +322,7 @@ export const documents: readonly WorkstationDocument[] = [
         kind: "paragraphs",
         paragraphs: [
           "Two kitchen chairs, one loose leg.",
-          "Ask maintenance if they still have the wall paint for 402. Take a photo in daylight so they can see where it's chipped.",
+          "Ask Otto if there's any wall paint left for 402. Take a photo in daylight so he can see where it's chipped.",
         ],
       },
     ],

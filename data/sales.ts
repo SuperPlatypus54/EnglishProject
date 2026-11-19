@@ -35,11 +35,10 @@ export const employeeSales = {
 };
 
 export const branchTeam: readonly TeamSalesRecord[] = [
-  { rank: 3, name: "Marcus Hill", sales: 32_600 },
   { rank: employeeSales.rank, name: employeeSales.name, sales: employeeSales.actual },
 ];
 
-const otherTeamSales = { headcount: 12, sales: 308_050 };
+const otherTeamSales = { headcount: 13, sales: 340_650 };
 const branchHeadcount = branchTeam.length + otherTeamSales.headcount;
 
 export const branchReport = {

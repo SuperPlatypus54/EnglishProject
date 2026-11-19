@@ -13,7 +13,7 @@
 }
 
 .app button { cursor: pointer; }
-.app :is(button, select, input):focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.app :is(button, select):focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
 .masthead, .navigation {
   display: flex;
@@ -171,11 +171,7 @@
 .warning strong { font-size: .8rem; }
 .warning p { margin: 2px 0 0; font-size: .8rem; line-height: 1.4; }
 
-.tableToolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px 14px; padding: 10px clamp(10px, 2vw, 17px); }
-.tableToolbar p { margin: 0; font-size: .8rem; color: var(--muted); }
-.search { position: relative; width: min(100%, 190px); }
-.search svg { position: absolute; top: 13px; left: 9px; color: var(--muted); pointer-events: none; }
-.search input { width: 100%; min-height: 44px; padding: 7px 8px 7px 31px; border: 1px solid var(--line); border-radius: 7px; background: #f7f9fc; color: var(--ink); font-size: 1rem; }
+.teamCount { margin: 0; padding: 10px clamp(10px, 2vw, 17px); font-size: .8rem; color: var(--muted); }
 .leaderboard { width: 100%; border-collapse: collapse; text-align: left; font-size: .875rem; }
 .leaderboard thead { background: #f3f6fa; color: var(--muted); font-size: .75rem; }
 .leaderboard th, .leaderboard td { padding: 11px clamp(9px, 2vw, 16px); border-top: 1px solid #e9eff6; }
@@ -185,7 +181,6 @@
 .leaderboard tbody th { font-weight: 640; overflow-wrap: anywhere; }
 .myRow { background: #eaf1ff; color: #194a9e; }
 .myRow th span { margin-left: 5px; padding: 2px 4px; border-radius: 4px; background: #dae8ff; font-size: .65rem; white-space: nowrap; }
-.empty { border-top: 1px solid #edf1f7; margin: 0; padding: 24px 15px; color: var(--muted); }
 
 .quota { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 8px; margin: 16px 0 6px; font-size: .875rem; }
 .quota label { font-weight: 680; }

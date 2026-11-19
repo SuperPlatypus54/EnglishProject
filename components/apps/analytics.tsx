@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  ArrowDown, ArrowUpRight, BarChart3, Building2, CircleAlert, Search, Users,
+  ArrowDown, ArrowUpRight, BarChart3, Building2, CircleAlert, Users,
 } from "lucide-react";
 import { useState } from "react";
 import {
@@ -147,9 +147,6 @@ function EmployeeOverview() {
 }
 
 function Leaderboard() {
-  const [query, setQuery] = useState("");
-  const visible = rankings.filter((record) => record.name.toLowerCase().includes(query.trim().toLowerCase()));
-
   return (
     <div className={styles.page}>
       <div className={styles.titleRow}>
@@ -160,27 +157,19 @@ function Leaderboard() {
         </div>
       </div>
       <section className={styles.teamCard} aria-label="November sales leaderboard">
-        <div className={styles.tableToolbar}>
-          <p>{visible.length} of {branchReport.headcount} employees</p>
-          <label className={styles.search}>
-            <Search aria-hidden="true" size={17} />
-            <input type="search" aria-label="Find an employee" placeholder="Find an employee" value={query} onChange={(event) => setQuery(event.target.value)} />
-          </label>
-        </div>
-        {visible.length ? (
-          <table className={styles.leaderboard}>
-            <thead><tr><th scope="col">Rank</th><th scope="col">Employee</th><th scope="col" aria-sort="descending">Sales <ArrowDown size={14} aria-hidden="true" /></th></tr></thead>
-            <tbody>
-              {visible.map((record) => (
-                <tr key={record.name} className={record.name === employeeSales.name ? styles.myRow : undefined}>
-                  <td>{record.rank}</td>
-                  <th scope="row">{record.name}{record.name === employeeSales.name && <span>You</span>}</th>
-                  <td>{dollars.format(record.sales)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : <p className={styles.empty}>No employees found.</p>}
+        <p className={styles.teamCount}>{rankings.length} of {branchReport.headcount} employees</p>
+        <table className={styles.leaderboard}>
+          <thead><tr><th scope="col">Rank</th><th scope="col">Employee</th><th scope="col" aria-sort="descending">Sales <ArrowDown size={14} aria-hidden="true" /></th></tr></thead>
+          <tbody>
+            {rankings.map((record) => (
+              <tr key={record.name} className={record.name === employeeSales.name ? styles.myRow : undefined}>
+                <td>{record.rank}</td>
+                <th scope="row">{record.name}{record.name === employeeSales.name && <span>You</span>}</th>
+                <td>{dollars.format(record.sales)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
     </div>
   );
