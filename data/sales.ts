@@ -5,11 +5,12 @@ export interface SalesMonth {
   monthToDate?: true;
 }
 
-export interface TeamSalesRecord {
-  rank: number;
+interface OfficeStaffMember {
   name: string;
-  sales: number;
+  role: string;
 }
+
+const branchManager = { name: "Andrew Tate", role: "Branch Manager" };
 
 export const salesMonths = [
   { month: "June", shortLabel: "Jun", sales: 42_000 },
@@ -24,35 +25,31 @@ export const employeeSales = {
   name: "James Bond",
   role: "Sales Associate",
   branch: "Grand Meridian Office",
-  manager: "Andrew Tate",
+  manager: branchManager.name,
   status: "Active",
   target: 50_000,
   actual: salesMonths[salesMonths.length - 1].sales,
   closed: 3,
   assigned: 28,
-  rank: 14,
   quarterRating: "Below Expectations",
 };
 
-export const branchTeam: readonly TeamSalesRecord[] = [
-  { rank: employeeSales.rank, name: employeeSales.name, sales: employeeSales.actual },
+export const officeStaff: readonly OfficeStaffMember[] = [
+  { name: employeeSales.name, role: employeeSales.role },
+  branchManager,
 ];
-
-const otherTeamSales = { headcount: 13, sales: 340_650 };
-const branchHeadcount = branchTeam.length + otherTeamSales.headcount;
 
 export const branchReport = {
   date: "November 18, 2026",
-  headcount: branchHeadcount,
-  target: employeeSales.target * branchHeadcount,
-  actual: branchTeam.reduce((total, employee) => total + employee.sales, otherTeamSales.sales),
-  previousTarget: employeeSales.target * branchHeadcount,
-  previousActual: 518_400,
+  target: employeeSales.target,
+  actual: employeeSales.actual,
+  previousTarget: employeeSales.target,
+  previousActual: salesMonths[salesMonths.length - 2].sales,
   memo: {
     from: "Regional Sales Operations",
-    to: "Andrew Tate",
+    to: branchManager.name,
     date: "November 16, 2026",
     subject: "November recovery plan",
-    body: "Grand Meridian closed October below quota and is again behind its November target pace. Send me a recovery plan by Friday with an owner and next step for each stalled account. We'll go through it together before Monday's regional call.",
+    body: "Grand Meridian closed October below quota and is again behind its November target pace. Send me a recovery plan by Friday with the next step and follow-up date for each stalled account. We'll go through it together before Monday's regional call.",
   },
 };

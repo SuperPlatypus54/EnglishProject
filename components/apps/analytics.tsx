@@ -1,11 +1,11 @@
 "use client";
 
 import {
-  ArrowDown, ArrowUpRight, BarChart3, Building2, CircleAlert, Users,
+  ArrowUpRight, BarChart3, Building2, CircleAlert, Users,
 } from "lucide-react";
 import { useState } from "react";
 import {
-  branchReport, branchTeam, employeeSales, salesMonths,
+  branchReport, employeeSales, officeStaff, salesMonths,
 } from "@/data/sales";
 import type { AppProps } from "@/lib/workstation";
 import styles from "./analytics.module.css";
@@ -16,11 +16,9 @@ const dollars = new Intl.NumberFormat("en-US", {
 
 const sections = [
   { id: "", title: "My performance", icon: BarChart3 },
-  { id: "team", title: "Team", icon: Users },
+  { id: "team", title: "Office staff", icon: Users },
   { id: "branch", title: "Branch", icon: Building2 },
 ];
-
-const rankings = [...branchTeam].sort((first, second) => first.rank - second.rank);
 
 function percentage(actual: number, target: number) {
   return `${((actual / target) * 100).toFixed(1)}%`;
@@ -121,7 +119,7 @@ function EmployeeOverview() {
         { label: "Monthly sales", value: dollars.format(employeeSales.actual), caption: "November month to date" },
         { label: "Quota attainment", value: attainment, caption: `Target ${dollars.format(employeeSales.target)}` },
         { label: "Deals closed", value: String(employeeSales.closed), caption: `of ${employeeSales.assigned} assigned` },
-        { label: "Branch ranking", value: `${employeeSales.rank} of ${branchReport.headcount}`, caption: "By November sales" },
+        { label: "Office staff", value: String(officeStaff.length), caption: "One sales associate and one manager" },
       ]} />
       <div className={styles.overviewGrid}>
         <SalesTrend />
@@ -146,26 +144,25 @@ function EmployeeOverview() {
   );
 }
 
-function Leaderboard() {
+function OfficeStaff() {
   return (
     <div className={styles.page}>
       <div className={styles.titleRow}>
         <div>
           <p className={styles.context}>{employeeSales.branch}</p>
-          <h1>Team leaderboard</h1>
-          <p className={styles.subheading}>November sales through Nov 18</p>
+          <h1 id="office-staff-title">Office staff</h1>
+          <p className={styles.subheading}>All staff assigned to this office</p>
         </div>
       </div>
-      <section className={styles.teamCard} aria-label="November sales leaderboard">
-        <p className={styles.teamCount}>{rankings.length} of {branchReport.headcount} employees</p>
-        <table className={styles.leaderboard}>
-          <thead><tr><th scope="col">Rank</th><th scope="col">Employee</th><th scope="col" aria-sort="descending">Sales <ArrowDown size={14} aria-hidden="true" /></th></tr></thead>
+      <section className={styles.teamCard} aria-labelledby="office-staff-title">
+        <p className={styles.teamCount}>{officeStaff.length} employees</p>
+        <table className={styles.staffTable}>
+          <thead><tr><th scope="col">Employee</th><th scope="col">Role</th></tr></thead>
           <tbody>
-            {rankings.map((record) => (
-              <tr key={record.name} className={record.name === employeeSales.name ? styles.myRow : undefined}>
-                <td>{record.rank}</td>
-                <th scope="row">{record.name}{record.name === employeeSales.name && <span>You</span>}</th>
-                <td>{dollars.format(record.sales)}</td>
+            {officeStaff.map((member) => (
+              <tr key={member.name} className={member.name === employeeSales.name ? styles.myRow : undefined}>
+                <th scope="row">{member.name}{member.name === employeeSales.name && <span>You</span>}</th>
+                <td>{member.role}</td>
               </tr>
             ))}
           </tbody>
@@ -183,12 +180,12 @@ function BranchOverview() {
         <div>
           <p className={styles.context}>Branch summary · November 2026</p>
           <h1>{employeeSales.branch}</h1>
-          <p className={styles.subheading}>Branch manager Andrew Tate</p>
+          <p className={styles.subheading}>Branch manager {employeeSales.manager}</p>
         </div>
       </div>
       <Metrics metrics={[
         { label: "November sales", value: dollars.format(branchReport.actual), caption: `As of ${branchReport.date}` },
-        { label: "Monthly branch quota", value: dollars.format(branchReport.target), caption: `${branchReport.headcount} sales associates` },
+        { label: "Monthly branch quota", value: dollars.format(branchReport.target), caption: "One sales associate" },
         { label: "Quota attainment", value: percentage(branchReport.actual, branchReport.target), caption: "November month to date" },
         { label: "Behind target pace", value: dollars.format(novemberPace - branchReport.actual), caption: "Based on elapsed calendar days" },
       ]} />
@@ -236,7 +233,7 @@ export function AnalyticsApp({ view, go }: AppProps) {
         ))}
       </nav>
       <div data-workstation-scroll className={styles.scroll} key={section}>
-        {section === "team" ? <Leaderboard /> : section === "branch" ? <BranchOverview /> : <EmployeeOverview />}
+        {section === "team" ? <OfficeStaff /> : section === "branch" ? <BranchOverview /> : <EmployeeOverview />}
       </div>
     </div>
   );

@@ -55,7 +55,7 @@ const searchIndex: readonly SearchEntry[] = [
     content: [item.occupation, item.bio, ...item.interests].join(" "),
   })),
   { app: "analytics", view: "branch", title: "Branch performance", detail: "Apex Analytics", content: "Andrew Tate branch quota Grand Meridian Office" },
-  { app: "analytics", view: "team", title: "Team leaderboard", detail: "Apex Analytics", content: "employee rankings November sales salespeople" },
+  { app: "analytics", view: "team", title: "Office staff", detail: "Apex Analytics", content: "Grand Meridian Office James Bond Sales Associate Andrew Tate Branch Manager two employees roster" },
 ];
 
 function normalize(value: string) {

@@ -167,6 +167,39 @@
 
 .appTile > :last-child { text-wrap: balance; }
 
+.fileShortcut {
+  display: grid;
+  width: 100%;
+  max-width: 280px;
+  min-height: 54px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 7px 10px;
+  border: 1px solid #aec9dd48;
+  border-radius: 10px;
+  color: #f1f5f8;
+  background: rgb(20 34 52 / .88);
+  text-align: left;
+}
+
+.fileShortcutIcon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid #9fbade3b;
+  border-radius: 7px;
+  color: #e1ebfc;
+  background: #2a4160;
+}
+
+.fileShortcut strong, .fileShortcut small { display: block; }
+.fileShortcut strong { font-size: 13px; font-weight: 650; overflow-wrap: anywhere; }
+.fileShortcut small { margin-top: 2px; color: #bed0de; font-size: 12px; }
+.fileShortcut > svg { color: #b7c9d7; }
+
 .tileIcon { position: relative; }
 
 .appIcon {
@@ -505,6 +538,7 @@
 }
 
 @media (hover: hover) {
+  .fileShortcut:hover { background: #28415c; }
   .appTile:hover, .systemActions button:hover, .dock button:hover, .widgetItem:hover { background-color: #c9e4ff23; }
   .windowControls button:hover { background: #e0e8f2; }
   .windowControls button:last-child:hover { color: #912240; background: #f9dfe7; }

@@ -29,6 +29,8 @@ const applications = {
   notes: dynamic<AppProps>(() => import("./apps/notes").then((mod) => mod.NotesApp), { loading: LoadingApp }),
 };
 
+const employmentContract = documents.find((document) => document.id === "employment-contract");
+
 function MeridianMark() {
   return (
     <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -173,6 +175,17 @@ function Desktop({
             );
           })}
         </nav>
+        {employmentContract && (
+          <button
+            type="button"
+            className={styles.fileShortcut}
+            onClick={() => openApp("files", `document/${employmentContract.id}`)}
+          >
+            <span className={styles.fileShortcutIcon}><FileText size={18} aria-hidden="true" /></span>
+            <span><strong>{employmentContract.name}</strong><small>Files · Documents</small></span>
+            <ChevronRight size={16} aria-hidden="true" />
+          </button>
+        )}
       </div>
       <aside className={styles.desktopSidebar}>
         <div className={styles.widget}>

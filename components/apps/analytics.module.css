@@ -172,13 +172,11 @@
 .warning p { margin: 2px 0 0; font-size: .8rem; line-height: 1.4; }
 
 .teamCount { margin: 0; padding: 10px clamp(10px, 2vw, 17px); font-size: .8rem; color: var(--muted); }
-.leaderboard { width: 100%; border-collapse: collapse; text-align: left; font-size: .875rem; }
-.leaderboard thead { background: #f3f6fa; color: var(--muted); font-size: .75rem; }
-.leaderboard th, .leaderboard td { padding: 11px clamp(9px, 2vw, 16px); border-top: 1px solid #e9eff6; }
-.leaderboard td:first-child { width: 13%; color: var(--muted); font-variant-numeric: tabular-nums; }
-.leaderboard :is(th, td):last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.leaderboard th:last-child svg { display: inline-block; vertical-align: text-bottom; }
-.leaderboard tbody th { font-weight: 640; overflow-wrap: anywhere; }
+.staffTable { width: 100%; border-collapse: collapse; text-align: left; font-size: .875rem; }
+.staffTable thead { background: #f3f6fa; color: var(--muted); font-size: .75rem; }
+.staffTable th, .staffTable td { padding: 11px clamp(9px, 2vw, 16px); border-top: 1px solid #e9eff6; }
+.staffTable :is(th, td):last-child { text-align: right; }
+.staffTable tbody th { font-weight: 640; }
 .myRow { background: #eaf1ff; color: #194a9e; }
 .myRow th span { margin-left: 5px; padding: 2px 4px; border-radius: 4px; background: #dae8ff; font-size: .65rem; white-space: nowrap; }
 
@@ -200,5 +198,7 @@
 
 @media (max-width: 500px) {
   .employeeBadge { display: none; }
+  .navigation button { flex: 1; }
+  .navigation button svg { display: none; }
   .chart { height: 111px; }
 }

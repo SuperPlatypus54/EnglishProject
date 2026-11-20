@@ -155,7 +155,7 @@ export const mailMessages: readonly MailMessage[] = [
     subject: "Third-floor conference room bookings",
     date: "2026-11-12",
     time: "10:21 AM",
-    body: "Hi team,\n\nRoom 3B is unavailable Thursday morning for a facilities inspection. The small room across the hall is open for calls and individual meetings. Please return the borrowed HDMI adapter to the reception desk.\n\nOffice Services",
+    body: "James,\n\nRoom 3B is unavailable Thursday morning for a facilities inspection. The small room across the hall is open if you and Andrew need somewhere to meet. Please return the borrowed HDMI adapter to the reception desk.\n\nOffice Services",
   },
   {
     id: "sales-warning",

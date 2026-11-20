@@ -28,7 +28,7 @@ export const calendarEvents: readonly CalendarRecord[] = [
   },
   {
     id: "branch-standup", date: "2026-11-09", time: "09:15",
-    title: "Branch standup", category: "Work", location: "Grand Meridian Office",
+    title: "Weekly check-in with Andrew", category: "Work", location: "Grand Meridian Office",
   },
   {
     id: "car-service", date: "2026-11-12", time: "08:00",

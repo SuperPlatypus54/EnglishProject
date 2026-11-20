@@ -41,7 +41,7 @@ export interface WorkstationDocument {
 }
 
 export const fileFolders: readonly FileFolder[] = [
-  { id: "documents", name: "Documents", summary: "Employment and tenancy records" },
+  { id: "documents", name: "Documents", summary: "Employment contract and tenancy records" },
   { id: "personal", name: "Personal", summary: "Keepsakes, unsent letters, and plans" },
   { id: "downloads", name: "Downloads", summary: "Saved attachments and confirmations" },
   { id: "keepsakes", name: "Keepsakes", parent: "personal", summary: "Scans of James's old prints" },
@@ -68,25 +68,27 @@ export const documents: readonly WorkstationDocument[] = [
     folder: "documents",
     format: "pdf",
     modified: "2025-03-03",
-    heading: "Employment Agreement",
+    heading: "Five-Year Employment Contract",
     issuer: "Apex Sales Group",
-    summary: "Signed five-year Sales Associate agreement with a performance review clause.",
+    summary: "James Bond's signed five-year contract with Apex Sales Group, from March 3, 2025 to March 2, 2030.",
     sections: [
       {
         kind: "fields",
         fields: [
+          { label: "Employer", value: "Apex Sales Group" },
           { label: "Employee", value: "James Bond" },
           { label: "Role", value: "Sales Associate" },
           { label: "Assigned branch", value: "Grand Meridian Office" },
+          { label: "Term", value: "Five years" },
           { label: "Start date", value: "March 3, 2025" },
-          { label: "Initial term", value: "Five years, through March 2, 2030" },
+          { label: "End date", value: "March 2, 2030" },
         ],
       },
       {
         kind: "paragraphs",
         title: "1. Duties and compensation",
         paragraphs: [
-          "The employee will maintain assigned accounts, document client communications, and report to the branch manager. Compensation consists of base pay and commission on eligible closed sales under the current branch commission schedule.",
+          "James Bond will maintain assigned accounts, document client communications, and report to Branch Manager Andrew Tate. Compensation consists of base pay and commission on eligible closed sales under the current branch commission schedule.",
         ],
       },
       {
@@ -97,8 +99,15 @@ export const documents: readonly WorkstationDocument[] = [
         ],
       },
       {
+        kind: "paragraphs",
+        title: "3. Separation and renewal",
+        paragraphs: [
+          "Either party may end the agreement early with 30 days' written notice. The contract expires at the end of March 2, 2030 unless both parties sign a written extension.",
+        ],
+      },
+      {
         kind: "fields",
-        title: "Signatures on record",
+        title: "Signed March 3, 2025",
         fields: [
           { label: "Employee", value: "James Bond · March 3, 2025" },
           { label: "Branch manager", value: "Andrew Tate · March 3, 2025" },
@@ -125,15 +134,21 @@ export const documents: readonly WorkstationDocument[] = [
           { label: "Monthly target", value: "$50,000" },
           { label: "Closed sales", value: "$12,450 (24.9%)" },
           { label: "Accounts", value: "3 deals closed / 28 assigned" },
-          { label: "Branch rank", value: "14 of 14" },
         ],
       },
       {
         kind: "paragraphs",
         title: "Manager notes",
         paragraphs: [
-          "Bring a current list of accounts without a next follow-up date. Review the recent service handoffs and agree on which accounts need a call before Friday.",
+          "Bring a current list of accounts without a next follow-up date. Review which clients are still waiting on a response and agree on which calls need to happen before Friday.",
           "Performance improvement review pending.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "Office assignment",
+        paragraphs: [
+          "James Bond and Andrew Tate are the only employees assigned to the Grand Meridian Office.",
         ],
       },
     ],
